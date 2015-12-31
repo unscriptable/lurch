@@ -1,8 +1,11 @@
 module Kinetic (
-    Kinetic (..)
+    Kinetic (..),
+    ElapsedTime
 ) where
 
 import Data.Time.Clock (NominalDiffTime)
 
+type ElapsedTime = NominalDiffTime
+
 class Kinetic a where
-    advance :: NominalDiffTime -> a -> a
+    advance :: ElapsedTime -> a -> a

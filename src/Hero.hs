@@ -4,7 +4,7 @@ module Hero (
 
 import Object (Object)
 import Kinetic (Kinetic, advance)
-import Reactive (Reacive, interact)
+import Reactive (Reactive, react)
 
 data Hero
     = Hero {
@@ -13,7 +13,7 @@ data Hero
     deriving (Eq, Show, Read)
 
 instance Kinetic Hero where
-    advance (Hero object) = Hero (advance object)
+    advance t (Hero o) = Hero (advance t o)
 
 instance Reactive Hero where
-    hero `interact` o = ???
+    hero `react` _ = Nothing

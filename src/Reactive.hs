@@ -5,4 +5,4 @@ module Reactive (
 import Reaction (Reaction)
 
 class Reactive a where
-    interact :: a -> a -> Maybe (a, a, Reaction)
+    react :: a -> a -> Maybe (a, a, Reaction)

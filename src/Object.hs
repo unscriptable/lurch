@@ -5,9 +5,10 @@ module Object (
     Object (..)
 ) where
 
-import Number
-import Geometry
+import Number (Number)
+import Geometry (Coords (..), Point)
 -- import Shape
+import Kinetic (Kinetic, ElapsedTime, advance)
 
 type Mass = Number
 type Velocity = Coords Number
@@ -19,13 +20,13 @@ data Object
         velocity :: Velocity,
         mass :: Mass
     }
-    deriving (Show, Read)
+    deriving (Eq, Show, Read)
 
 instance Kinetic Object where
-    advance time (Object pos vel mass) = Object (updatePos time vel pos) vel mass
+    advance time (Object pos vel m) = Object (updatePos time vel pos) vel m
 
 -- Updates a set of coordinates based off a velocity and elapsed time.
-updatePos :: NominalDiffTime -> Velocity -> Point -> Point
+updatePos :: ElapsedTime -> Velocity -> Point -> Point
 updatePos _ (Coords 0 0 0)     point         = point
 updatePos t (Coords dx dy dz) (Coords x y z) =
     let seconds = realToFrac t
