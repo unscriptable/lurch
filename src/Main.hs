@@ -1,7 +1,9 @@
+{-# LANGUAGE MultiParamTypeClasses, FunctionalDependencies #-}
 module Main (main) where
 
 import Advance
-import Hero -- temp
+import Game
+import Game.Interactions
 
 main :: IO ()
 main = do

@@ -1,6 +1,8 @@
 module Shape (
     Length,
     -- Width,
+    -- Height,
+    -- Depth,
     Shape (..)
 ) where
 
@@ -9,20 +11,13 @@ import Number
 
 type Length = Number
 -- type Width = Number
+-- type Height = Number
+-- type Depth = Number
 
 -- A convex shape.
 data Shape
-    = Circle Length
-    -- | Square Length
-    -- | Rectangle Length Width
+    = Dot
+    | Sphere Length
+    -- | Cube Length
+    -- | RectangularPrism Width Height Depth
     deriving (Eq, Show, Read)
-
--- -- Distance to the edge of a shape from its origin in a specific direction.
--- extentInDirection :: Shape -> Slope -> Distance
--- extentInDirection (Circle r) (Coords dx dy dz) =
---     -- TODO
---
--- -- Returns true if the point is inside the extent of the shape.
--- isWithinExtent :: Shape -> Point -> Bool
--- isWithinExtent (Circle r) (Coords x y z) =
---     -- TODO
